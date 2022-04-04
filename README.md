@@ -6,13 +6,13 @@ JSX.
 ```
 INPUT              RESULT                        KEYBINDING          FILE FORMAT
 ================================================================================
-foo                <foo>                         <C-X><C-Space>
+foo                <foo>                         <C-X><C-Space>                *
                    </foo>
 --------------------------------------------------------------------------------
-foo.bar            <foo class="bar">             <C-X><C-Space>
+foo.bar            <foo class="bar">             <C-X><C-Space>                *
                    </foo>
 --------------------------------------------------------------------------------
-foo.bar#baz        <foo class="bar" id="baz">    <C-X><C-Space>
+foo.bar#baz        <foo class="bar" id="baz">    <C-X><C-Space>                *
                    </foo>
 --------------------------------------------------------------------------------
 foo.bar            <foo className="bar">         <C-X><C-Space>              JSX
