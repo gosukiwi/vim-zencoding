@@ -80,13 +80,15 @@ function! s:ZenCodingExpand(isSelfClosing) abort
   " insert tag
   execute "normal! ^C\<Esc>"
   if a:isSelfClosing
-    execute "normal a" . tag['self'] . "\<Esc>"
+    execute "normal! a" . tag['self'] . "\<Esc>"
   else
-    execute "normal a" . tag['open'] . "\<CR>" . tag['close'] . "\<Esc>"
+    execute "normal! a" . tag['open'] . "\<CR>" . tag['close'] . "\<Esc>"
     execute "normal! O\<Space>\<BS>\<Esc>"
   endif
   startinsert!
 endfunction
 
-inoremap <C-x><C-Space> <C-O>:call <SID>ZenCodingExpand(0)<CR>
-inoremap <C-x><C-b> <C-O>:call <SID>ZenCodingExpand(1)<CR>
+nnoremap <Plug>ExpandZenCoding :call <SID>ZenCodingExpand(0)<CR>
+nnoremap <Plug>ExpandZenCodingSelfClosing :call <SID>ZenCodingExpand(1)<CR>
+inoremap <silent> <C-x><C-Space> <C-O>:call <SID>ZenCodingExpand(0)<CR>
+inoremap <silent> <C-x><C-b> <C-O>:call <SID>ZenCodingExpand(1)<CR>

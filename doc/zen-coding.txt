@@ -1,0 +1,65 @@
+*zen-coding.txt*  Minimalist zencoding autocomplete
+
+Author:  Federico Ramirez <https://github.com/gosukiwi/>
+License: Same terms as Vim itself (see |license|)
+
+Help on using zen-coding                                             *zen-coding*
+
+    1. INTRODUCTION ................................. |zen-coding-intro|
+    2. MAPPINGS ..................................... |zen-coding-mappings|
+
+================================================================================
+ 1. INTRODUCTION                                               *zen-coding-intro*
+
+This plugin will autocomplete Emmet snippets.
+
+Below is an example of zen-coding usage:
+
+  You type                                 You get ("_" represents the cursor)~
+  div<C-X><C-Space>                        <div>
+                                               _
+                                           </div>
+
+  div.foo.bar<C-X><C-Space>                <div class="foo bar">
+                                               _
+                                           </div>
+
+  div.foo.bar#baz<C-X><C-Space>            <div class="foo bar" id="baz">
+                                               _
+                                           </div>
+
+  div<C-X><C-b>                            <div />
+
+  div.foo<C-X><C-b>                        <div class="foo" />
+
+  div#bar#baz.foo<C-X><C-b>                <div class="foo" id="bar baz" />
+
+Note that in React files (filetypes matching /jsx|React/), it replaces `class`
+with `className`:
+
+  You type                                 You get ("_" represents the cursor)~
+  div.foo.bar<C-X><C-Space>                <div className="foo bar">
+                                               _
+                                           </div>
+
+  div.foo.bar#baz<C-X><C-Space>            <div className="foo bar" id="baz">
+                                               _
+                                           </div>
+
+  div<C-X><C-b>                            <div />
+
+  div.foo<C-X><C-b>                        <div className="foo" />
+
+  div#bar#baz.foo<C-X><C-b>                <div className="foo" id="bar baz" />
+
+================================================================================
+ 2. MAPPINGS                                                 *zen-coding-mappings*
+
+You can define your own mappings for expansion:
+>
+    let g:zen_coding_disable_default_mappings = 1
+    " load plugin
+    imap <silent> <your-custom-mapping> <Esc><Plug>ExpandZenCoding
+    imap <silent> <your-custom-mapping> <Esc><Plug>ExpandZenCodingSelfClosing
+<
+vim:tw=78:ts=8:ft=help:norl:
