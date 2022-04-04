@@ -11,9 +11,10 @@ Help on using zen-coding                                             *zen-coding
 ================================================================================
  1. INTRODUCTION                                               *zen-coding-intro*
 
-This plugin will autocomplete Emmet snippets.
+This plugin will autocomplete Emmet snippets. It is not a full Emmet
+implementation. It only expands ids and classes. So no nesting tags.
 
-Below is an example of zen-coding usage:
+Example usage:
 
   You type                                 You get ("_" represents the cursor)~
   ==============================================================================
@@ -37,7 +38,7 @@ Below is an example of zen-coding usage:
   ------------------------------------------------------------------------------
 
 Note that in React files (filetypes matching /jsx|React/), it replaces `class`
-with `className`:
+with `className`, as well as adding `/` to self-closing tags:
 
   You type                                 You get ("_" represents the cursor)~
   ==============================================================================
