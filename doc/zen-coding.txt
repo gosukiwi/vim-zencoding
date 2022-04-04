@@ -64,7 +64,7 @@ You can define your own mappings for expansion:
 >
     let g:zen_coding_disable_default_mappings = 1
     " load plugin
-    imap <silent> <your-custom-mapping> <Esc><Plug>ExpandZenCoding
-    imap <silent> <your-custom-mapping> <Esc><Plug>ExpandZenCodingSelfClosing
+    imap <silent> <your-custom-mapping> <C-O><Plug>ExpandZenCoding
+    imap <silent> <your-custom-mapping> <C-O><Plug>ExpandZenCodingSelfClosing
 <
 vim:tw=78:ts=8:ft=help:norl:
