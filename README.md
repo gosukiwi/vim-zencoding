@@ -19,3 +19,5 @@ foo.bar            <foo className="bar">         <C-X><C-Space>              JSX
                    </foo>
 --------------------------------------------------------------------------------
 ```
+
+See the [documentation](doc/zen-coding.txt) for all the details.
