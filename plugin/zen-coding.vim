@@ -1,3 +1,8 @@
+if exists('g:zen_coding_loaded')
+  finish
+endif
+let g:zen_coding_loaded = 1
+
 " Gets a list of classes and ids in a given line
 function! s:GetClassesAndIds(initial, classesAndIds) abort
   let classList = []
@@ -26,17 +31,23 @@ endfunction
 
 function! s:BuildTag(tagname, attributes) abort
   let attrs = []
+  let isReact = &filetype =~ 'jsx\|react'
+  if isReact
+    let selfClosingEnding = ' />'
+  else
+    let selfClosingEnding = '>'
+  endif
 
   if len(a:attributes) == 0
     return {
-          \ 'self':  '<' . a:tagname . ' />',
+          \ 'self':  '<' . a:tagname . selfClosingEnding,
           \ 'open':  '<' . a:tagname . '>',
           \ 'close': '</' . a:tagname . '>' }
   endif
 
   let classAttributeName = 'class'
   let idAttributeName = 'id'
-  if &filetype =~ 'jsx\|react'
+  if isReact
     let classAttributeName = 'className'
   endif
 
@@ -54,7 +65,7 @@ function! s:BuildTag(tagname, attributes) abort
 
   let attributesHtml = join(attrs, ' ')
   return {
-    \ 'self':  '<' . a:tagname . ' ' . attributesHtml . ' />',
+    \ 'self':  '<' . a:tagname . ' ' . attributesHtml . selfClosingEnding,
     \ 'open':  '<' . a:tagname . ' ' . attributesHtml . '>',
     \ 'close': '</' . a:tagname . '>' }
 endfunction
@@ -88,7 +99,11 @@ function! s:ZenCodingExpand(isSelfClosing) abort
   startinsert!
 endfunction
 
-nnoremap <Plug>ExpandZenCoding :call <SID>ZenCodingExpand(0)<CR>
-nnoremap <Plug>ExpandZenCodingSelfClosing :call <SID>ZenCodingExpand(1)<CR>
-inoremap <silent> <C-x><C-Space> <C-O>:call <SID>ZenCodingExpand(0)<CR>
-inoremap <silent> <C-x><C-b> <C-O>:call <SID>ZenCodingExpand(1)<CR>
+if exists('g:zen_coding_disable_default_mappings') && g:zen_coding_disable_default_mappings
+  " Provide <Plug> mappings for custom-binding
+  nnoremap <Plug>ExpandZenCoding :call <SID>ZenCodingExpand(0)<CR>
+  nnoremap <Plug>ExpandZenCodingSelfClosing :call <SID>ZenCodingExpand(1)<CR>
+else
+  inoremap <silent> <C-x><C-Space> <C-O>:call <SID>ZenCodingExpand(0)<CR>
+  inoremap <silent> <C-x><C-b> <C-O>:call <SID>ZenCodingExpand(1)<CR>
+endif
