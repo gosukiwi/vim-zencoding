@@ -3,7 +3,7 @@
 Author:  Federico Ramirez <https://github.com/gosukiwi/>
 License: Same terms as Vim itself (see |license|)
 
-Help on using zen-coding                                             *zen-coding*
+Help on using zen-coding                                    *zencoding* *zen-coding*
 
     1. INTRODUCTION ................................. |zen-coding-intro|
     2. COMMANDS ..................................... |zen-coding-commands|
@@ -67,6 +67,7 @@ You can use the following commands to auto-complete the current line:
     :ZenCodingExpand
     :ZenCodingSelfClosingExpand
 <
+
 ================================================================================
  3. MAPPINGS                                                 *zen-coding-mappings*
 
