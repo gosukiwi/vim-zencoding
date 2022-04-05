@@ -99,11 +99,12 @@ function! s:ZenCodingExpand(isSelfClosing) abort
   startinsert!
 endfunction
 
-if exists('g:zen_coding_disable_default_mappings') && g:zen_coding_disable_default_mappings
-  " Provide <Plug> mappings for custom-binding
-  nnoremap <Plug>ExpandZenCoding :call <SID>ZenCodingExpand(0)<CR>
-  nnoremap <Plug>ExpandZenCodingSelfClosing :call <SID>ZenCodingExpand(1)<CR>
-else
-  inoremap <silent> <C-x><C-Space> <C-O>:call <SID>ZenCodingExpand(0)<CR>
-  inoremap <silent> <C-x><C-b> <C-O>:call <SID>ZenCodingExpand(1)<CR>
+" Commands
+command! ZenCodingExpand silent! call <SID>ZenCodingExpand(0)<CR>
+command! ZenCodingSelfClosingExpand silent! call <SID>ZenCodingExpand(1)<CR>
+
+" Mappings
+if !exists('g:zen_coding_disable_default_mappings') || g:zen_coding_disable_default_mappings == 0
+  inoremap <silent> <C-x><C-Space> <C-O>:ZenCodingExpand<CR>
+  inoremap <silent> <C-x><C-b> <C-O>:ZenCodingSelfClosingExpand<CR>
 endif

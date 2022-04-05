@@ -6,7 +6,8 @@ License: Same terms as Vim itself (see |license|)
 Help on using zen-coding                                             *zen-coding*
 
     1. INTRODUCTION ................................. |zen-coding-intro|
-    2. MAPPINGS ..................................... |zen-coding-mappings|
+    2. COMMANDS ..................................... |zen-coding-commands|
+    3. MAPPINGS ..................................... |zen-coding-mappings|
 
 ================================================================================
  1. INTRODUCTION                                               *zen-coding-intro*
@@ -58,13 +59,36 @@ with `className`, as well as adding `/` to self-closing tags:
   ------------------------------------------------------------------------------
 
 ================================================================================
- 2. MAPPINGS                                                 *zen-coding-mappings*
+ 2. COMMANDS                                                 *zen-coding-commands*
 
-You can define your own mappings for expansion:
+You can use the following commands to auto-complete the current line:
+
+>
+    :ZenCodingExpand
+    :ZenCodingSelfClosingExpand
+<
+================================================================================
+ 3. MAPPINGS                                                 *zen-coding-mappings*
+
+You can define your own mappings for expansion. By default, `<C-x><C-Space>`
+will expand regular tags, and `<C-x><C-b>` will expand self-closing tags.
+
+You can define your own mappings on top of it, for example, you might want a
+mapping for invoking expansion in normal mode.
+
+>
+    nnoremap <silent> <my-mapping> :ZenCodingExpand<CR>
+    nnoremap <silent> <my-mapping> :ZenCodingSelfClosingExpand<CR>
+<
+
+If you want to disable the default mappings, simply set
+`g:zen_coding_disable_default_mappings` to 1 before loading the plugin.
+
 >
     let g:zen_coding_disable_default_mappings = 1
     " load plugin
-    imap <silent> <your-custom-mapping> <C-O><Plug>ExpandZenCoding
-    imap <silent> <your-custom-mapping> <C-O><Plug>ExpandZenCodingSelfClosing
+    inoremap <silent> <my-mapping> <C-O>:ZenCodingExpand<CR>
+    inoremap <silent> <my-mapping> <C-O>:ZenCodingSelfClosingExpand<CR>
 <
+
 vim:tw=78:ts=8:ft=help:norl:
