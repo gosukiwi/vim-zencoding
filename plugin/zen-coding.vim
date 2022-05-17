@@ -92,11 +92,10 @@ function! s:ZenCodingExpand(isSelfClosing) abort
   execute "normal! ^C\<Esc>"
   if a:isSelfClosing
     execute "normal! a" . tag['self'] . "\<Esc>"
+    startinsert!
   else
-    execute "normal! a" . tag['open'] . "\<CR>" . tag['close'] . "\<Esc>"
-    execute "normal! O\<Space>\<BS>\<Esc>"
+    execute "normal! a" . tag['open'] . tag['close'] . "\<Esc>bba\<Right>"
   endif
-  startinsert!
 endfunction
 
 " Commands
