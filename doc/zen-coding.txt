@@ -19,17 +19,11 @@ Example usage:
 
   You type                                 You get ("_" represents the cursor)~
   ==============================================================================
-  div<C-X><C-Space>                        <div>
-                                               _
-                                           </div>
+  div<C-X><C-Space>                        <div>_</div>
   ------------------------------------------------------------------------------
-  div.foo.bar<C-X><C-Space>                <div class="foo bar">
-                                               _
-                                           </div>
+  div.foo.bar<C-X><C-Space>                <div class="foo bar">_</div>
   ------------------------------------------------------------------------------
-  div.foo.bar#baz<C-X><C-Space>            <div class="foo bar" id="baz">
-                                               _
-                                           </div>
+  div.foo.bar#baz<C-X><C-Space>            <div class="foo bar" id="baz">_</div>
   ------------------------------------------------------------------------------
   div<C-X><C-b>                            <div>
   ------------------------------------------------------------------------------
@@ -43,13 +37,9 @@ with `className`, as well as adding `/` to self-closing tags:
 
   You type                                 You get ("_" represents the cursor)~
   ==============================================================================
-  div.foo.bar<C-X><C-Space>                <div className="foo bar">
-                                               _
-                                           </div>
+  div.foo.bar<C-X><C-Space>                <div className="foo bar">_</div>
   ------------------------------------------------------------------------------
-  div.foo.bar#baz<C-X><C-Space>            <div className="foo bar" id="baz">
-                                               _
-                                           </div>
+  div.foo.bar#baz<C-X><C-Space>            <div className="foo bar" id="baz">_</div>
   ------------------------------------------------------------------------------
   div<C-X><C-b>                            <div />
   ------------------------------------------------------------------------------

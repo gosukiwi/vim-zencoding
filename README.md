@@ -4,27 +4,23 @@ It only parses ids and classes (so no nested tags), and works for standard HTML 
 JSX.
 
 ```
-INPUT              RESULT                        KEYBINDING          FILE FORMAT
+INPUT              RESULT                           KEYBINDING       FILE FORMAT
 ================================================================================
-div                <div>                         <C-X><C-Space>                *
-                   </div>
+div                <div></div>                      <C-X><C-Space>             *
 --------------------------------------------------------------------------------
-div.foo            <div class="foo">             <C-X><C-Space>                *
-                   </div>
+div.foo            <div class="foo"></div>          <C-X><C-Space>             *
 --------------------------------------------------------------------------------
-div.foo#bar        <div class="foo" id="bar">    <C-X><C-Space>                *
-                   </div>
+div.foo#bar        <div class="foo" id="bar"><div>  <C-X><C-Space>             *
 --------------------------------------------------------------------------------
-div.foo            <div className="foo">         <C-X><C-Space>              JSX
-                   </div>
+div.foo            <div className="foo"></div>      <C-X><C-Space>           JSX
 --------------------------------------------------------------------------------
-div                <div>                         <C-X><C-b>                    *
+div                <div>                            <C-X><C-b>                 *
 --------------------------------------------------------------------------------
-div.foo            <div class="foo">             <C-X><C-b>                    *
+div.foo            <div class="foo">                <C-X><C-b>                 *
 --------------------------------------------------------------------------------
-div.foo#bar        <div class="foo" id="bar">    <C-X><C-b>                    *
+div.foo#bar        <div class="foo" id="bar">       <C-X><C-b>                 *
 --------------------------------------------------------------------------------
-div.foo            <div className="foo" />       <C-X><C-b>                  JSX
+div.foo            <div className="foo" />          <C-X><C-b>               JSX
 --------------------------------------------------------------------------------
 ```
 
