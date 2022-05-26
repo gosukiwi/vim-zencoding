@@ -31,7 +31,7 @@ endfunction
 
 function! s:BuildTag(tagname, attributes) abort
   let attrs = []
-  let isReact = &filetype =~ 'jsx\|react'
+  let isReact = &filetype =~ 'javascript\|jsx\|react'
   if isReact
     let selfClosingEnding = ' />'
   else
