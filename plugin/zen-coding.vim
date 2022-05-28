@@ -1,7 +1,7 @@
-if exists('g:zen_coding_loaded')
+if exists('g:zencoding_loaded')
   finish
 endif
-let g:zen_coding_loaded = 1
+let g:zencoding_loaded = 1
 
 " Gets a list of classes and ids in a given line
 function! s:GetClassesAndIds(initial, classesAndIds) abort
@@ -74,17 +74,29 @@ function! s:ZenCodingExpand(isSelfClosing) abort
   let line = trim(getline('.'))
   let matches = matchlist(line, '^\(\i\+\)\([.#]\|$\)')
   if len(matches) == 0
-    startinsert!
-    return
+    # try matching with an initial dot or numeral, and default tagname to
+    # `div`
+    let matches = matchlist(line, '^\([.#]\|$\)')
+
+    # nothing found
+    if len(matches) == 0
+      startinsert!
+      return
+    endif
+
+    let tagname = 'div'
+    let initial = matches[1]
+  else
+    let tagname = matches[1]
+    let initial = matches[2]
   endif
 
   " build tag
-  let tagname = matches[1]
-  if matches[2] == '' " no attributes defined
+  if initial == '' " no attributes defined
     let tag = s:BuildTag(tagname, [])
   else " attributes defined, get classes and ids
     let classesAndIds = substitute(line, tagname, '', '')
-    let attributes = s:GetClassesAndIds(matches[2], classesAndIds)
+    let attributes = s:GetClassesAndIds(initial, classesAndIds)
     let tag = s:BuildTag(tagname, attributes)
   endif
 
@@ -103,7 +115,7 @@ command! ZenCodingExpand silent! call <SID>ZenCodingExpand(0)<CR>
 command! ZenCodingSelfClosingExpand silent! call <SID>ZenCodingExpand(1)<CR>
 
 " Mappings
-if !exists('g:zen_coding_disable_default_mappings') || g:zen_coding_disable_default_mappings == 0
+if !exists('g:zencoding_disable_default_mappings') || g:zencoding_disable_default_mappings == 0
   inoremap <silent> <C-x><C-Space> <C-O>:ZenCodingExpand<CR>
   inoremap <silent> <C-x><C-b> <C-O>:ZenCodingSelfClosingExpand<CR>
 endif

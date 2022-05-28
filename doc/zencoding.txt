@@ -1,16 +1,16 @@
-*zen-coding.txt*  Minimalist zencoding autocomplete
+*zencoding.txt*  Minimalist zencoding autocomplete
 
-Author:  Federico Ramirez <https://github.com/gosukiwi/>
+Author: Federico Ramirez <https://github.com/gosukiwi/>
 License: Same terms as Vim itself (see |license|)
 
-Help on using zen-coding                                    *zencoding* *zen-coding*
+Help on using zencoding                                                *zencoding* 
 
-    1. INTRODUCTION ................................. |zen-coding-intro|
-    2. COMMANDS ..................................... |zen-coding-commands|
-    3. MAPPINGS ..................................... |zen-coding-mappings|
+    1. INTRODUCTION ................................. |zencoding-intro|
+    2. COMMANDS ..................................... |zencoding-commands|
+    3. MAPPINGS ..................................... |zencoding-mappings|
 
 ================================================================================
- 1. INTRODUCTION                                               *zen-coding-intro*
+ 1. INTRODUCTION                                                 *zencoding-intro*
 
 This plugin will autocomplete Emmet snippets. It is not a full Emmet
 implementation. It only expands ids and classes. So no nesting tags.
@@ -49,7 +49,7 @@ with `className`, as well as adding `/` to self-closing tags:
   ------------------------------------------------------------------------------
 
 ================================================================================
- 2. COMMANDS                                                 *zen-coding-commands*
+ 2. COMMANDS                                                  *zencoding-commands*
 
 You can use the following commands to auto-complete the current line:
 
@@ -59,7 +59,7 @@ You can use the following commands to auto-complete the current line:
 <
 
 ================================================================================
- 3. MAPPINGS                                                 *zen-coding-mappings*
+ 3. MAPPINGS                                                  *zencoding-mappings*
 
 You can define your own mappings for expansion. By default, `<C-x><C-Space>`
 will expand regular tags, and `<C-x><C-b>` will expand self-closing tags.
@@ -73,10 +73,10 @@ mapping for invoking expansion in normal mode.
 <
 
 If you want to disable the default mappings, simply set
-`g:zen_coding_disable_default_mappings` to 1 before loading the plugin.
+`g:zencoding_disable_default_mappings` to 1 before loading the plugin.
 
 >
-    let g:zen_coding_disable_default_mappings = 1
+    let g:zencoding_disable_default_mappings = 1
     " load plugin
     inoremap <silent> <my-mapping> <C-O>:ZenCodingExpand<CR>
     inoremap <silent> <my-mapping> <C-O>:ZenCodingSelfClosingExpand<CR>

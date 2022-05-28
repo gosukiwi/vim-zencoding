@@ -1,7 +1,8 @@
-# zen-coding.vim
+# zencoding.vim
 This plugin is a minimalist _Emmet_ (a.k.a zencoding) implementation for Vim.
-It only parses ids and classes (so no nested tags), and works for standard HTML as well as React's
-JSX.
+
+It only parses ids and classes (so no nested tags), and works for standard
+HTML as well as React's JSX.
 
 ```
 INPUT              RESULT                           KEYBINDING       FILE FORMAT
@@ -24,4 +25,4 @@ div.foo            <div className="foo" />          <C-X><C-b>               JSX
 --------------------------------------------------------------------------------
 ```
 
-See the [documentation](doc/zen-coding.txt) for all the details.
+See the [documentation](doc/zencoding.txt) for all the details.
