@@ -94,7 +94,7 @@ function! s:ZenCodingExpand(isSelfClosing) abort
     execute "normal! a" . tag['self'] . "\<Esc>"
     startinsert!
   else
-    execute "normal! a" . tag['open'] . tag['close'] . "\<Esc>%i\<Right>"
+    execute "normal! a" . tag['open'] . "\<C-o>mz" . tag['close'] . "\<Esc>`z\<Right>"
   endif
 endfunction
 
