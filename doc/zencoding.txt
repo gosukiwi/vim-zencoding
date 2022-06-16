@@ -6,8 +6,7 @@ License: Same terms as Vim itself (see |license|)
 Help on using zencoding                                                *zencoding* 
 
     1. INTRODUCTION ................................. |zencoding-intro|
-    2. COMMANDS ..................................... |zencoding-commands|
-    3. MAPPINGS ..................................... |zencoding-mappings|
+    2. MAPPINGS ..................................... |zencoding-mappings|
 
 ================================================================================
  1. INTRODUCTION                                                 *zencoding-intro*
@@ -29,11 +28,11 @@ Example usage:
   ------------------------------------------------------------------------------
   .foo#bar<C-X><C-Space>                   <div class="foo bar" id="baz">_</div>
   ------------------------------------------------------------------------------
-  div<C-X><C-b>                            <div>
+  div<C-x><C-x><C-Space>                   <div>
   ------------------------------------------------------------------------------
-  div.foo<C-X><C-b>                        <div class="foo">
+  div.foo<C-x><C-x><C-Space>               <div class="foo">
   ------------------------------------------------------------------------------
-  div#bar#baz.foo<C-X><C-b>                <div class="foo" id="bar baz">
+  div#bar#baz.foo<C-x><C-x><C-Space>       <div class="foo" id="bar baz">
   ------------------------------------------------------------------------------
 
 Note that in React files (filetypes matching /jsx|React/), it replaces `class`
@@ -45,36 +44,19 @@ with `className`, as well as adding `/` to self-closing tags:
   ------------------------------------------------------------------------------
   div.foo.bar#baz<C-X><C-Space>            <div className="foo bar" id="baz">_</div>
   ------------------------------------------------------------------------------
-  div<C-X><C-b>                            <div />
+  div<C-x><C-x><C-Space>                   <div />
   ------------------------------------------------------------------------------
-  div.foo<C-X><C-b>                        <div className="foo" />
+  div.foo<C-x><C-x><C-Space>               <div className="foo" />
   ------------------------------------------------------------------------------
-  div#bar#baz.foo<C-X><C-b>                <div className="foo" id="bar baz" />
+  div#bar#baz.foo<C-x><C-x><C-Space>       <div className="foo" id="bar baz" />
   ------------------------------------------------------------------------------
 
 ================================================================================
- 2. COMMANDS                                                  *zencoding-commands*
-
-You can use the following commands to auto-complete the current line:
-
->
-    :ZenCodingExpand
-    :ZenCodingSelfClosingExpand
-<
-
-================================================================================
- 3. MAPPINGS                                                  *zencoding-mappings*
+ 2. MAPPINGS                                                  *zencoding-mappings*
 
 You can define your own mappings for expansion. By default, `<C-x><C-Space>`
-will expand regular tags, and `<C-x><C-b>` will expand self-closing tags.
-
-You can define your own mappings on top of it, for example, you might want a
-mapping for invoking expansion in normal mode.
-
->
-    nnoremap <silent> <my-mapping> :ZenCodingExpand<CR>
-    nnoremap <silent> <my-mapping> :ZenCodingSelfClosingExpand<CR>
-<
+will expand regular tags, and `<C-x><C-x><C-Space>` will expand self-closing
+tags.
 
 If you want to disable the default mappings, simply set
 `g:zencoding_disable_default_mappings` to 1 before loading the plugin.
@@ -82,8 +64,8 @@ If you want to disable the default mappings, simply set
 >
     let g:zencoding_disable_default_mappings = 1
     " load plugin
-    inoremap <silent> <my-mapping> <C-O>:ZenCodingExpand<CR>
-    inoremap <silent> <my-mapping> <C-O>:ZenCodingSelfClosingExpand<CR>
+    inoremap <silent> <C-x><C-Space> <C-r>=zencoding#expand(0)<CR>
+    inoremap <silent> <C-x><C-x><C-Space> <C-r>=zencoding#expand(1)<CR>
 <
 
 vim:tw=78:ts=8:ft=help:norl:

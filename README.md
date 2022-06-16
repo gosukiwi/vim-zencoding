@@ -7,29 +7,29 @@ HTML as well as React's JSX.
 ```
 INPUT              RESULT                           KEYBINDING       FILE FORMAT
 ================================================================================
-div                <div></div>                      <C-X><C-Space>             *
+div                <div></div>                      <C-x><C-Space>             *
 --------------------------------------------------------------------------------
-div.foo            <div class="foo"></div>          <C-X><C-Space>             *
+div.foo            <div class="foo"></div>          <C-x><C-Space>             *
 --------------------------------------------------------------------------------
-.foo               <div class="foo"></div>          <C-X><C-Space>             *
+.foo               <div class="foo"></div>          <C-x><C-Space>             *
 --------------------------------------------------------------------------------
-div.foo#bar        <div class="foo" id="bar"><div>  <C-X><C-Space>             *
+div.foo#bar        <div class="foo" id="bar"><div>  <C-x><C-Space>             *
 --------------------------------------------------------------------------------
-.foo#bar           <div class="foo" id="bar"><div>  <C-X><C-Space>             *
+.foo#bar           <div class="foo" id="bar"><div>  <C-x><C-Space>             *
 --------------------------------------------------------------------------------
-div.foo            <div className="foo"></div>      <C-X><C-Space>           JSX
+div.foo            <div className="foo"></div>      <C-x><C-Space>           JSX
 --------------------------------------------------------------------------------
-div                <div>                            <C-X><C-b>                 *
+div                <div>                            <C-x><C-x><C-Space>        *
 --------------------------------------------------------------------------------
-div.foo            <div class="foo">                <C-X><C-b>                 *
+div.foo            <div class="foo">                <C-x><C-x><C-Space>        *
 --------------------------------------------------------------------------------
-.foo               <div class="foo">                <C-X><C-b>                 *
+.foo               <div class="foo">                <C-x><C-x><C-Space>        *
 --------------------------------------------------------------------------------
-div.foo#bar        <div class="foo" id="bar">       <C-X><C-b>                 *
+div.foo#bar        <div class="foo" id="bar">       <C-x><C-x><C-Space>        *
 --------------------------------------------------------------------------------
-.foo#bar           <div class="foo" id="bar">       <C-X><C-b>                 *
+.foo#bar           <div class="foo" id="bar">       <C-x><C-x><C-Space>        *
 --------------------------------------------------------------------------------
-div.foo            <div className="foo" />          <C-X><C-b>               JSX
+div.foo            <div className="foo" />          <C-x><C-x><C-Space>      JSX
 --------------------------------------------------------------------------------
 ```
 
