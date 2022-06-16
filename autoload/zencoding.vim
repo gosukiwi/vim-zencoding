@@ -1,7 +1,7 @@
 function! zencoding#getword() abort
   let line = getline('.')
   let start = col('.') - 1
-  while start > 0 && line[start - 1] =~ '\a\|\.\|#'
+  while start > 0 && line[start - 1] =~ '\a\|\.\|#\|-'
     let start -= 1
   endwhile
 
@@ -78,7 +78,8 @@ endfunction
 
 function! zencoding#expand(is_self_closing) abort
   let line = zencoding#getword()
-  let matches = matchlist(line, '^\(\i\+\)\([.#]\|$\)')
+  let matches = matchlist(line, '^\([a-zA-Z-]\+\)\([.#]\|$\)')
+  echom matches
   if len(matches) == 0
     " try matching with an initial dot or numeral, and default tagname to
     " `div`
