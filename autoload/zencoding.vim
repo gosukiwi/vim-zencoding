@@ -37,7 +37,7 @@ endfunction
 
 function! zencoding#build_tag(tagname, attributes) abort
   let attrs = []
-  let isReact = &filetype =~ 'javascript\|jsx\|react'
+  let isReact = &filetype =~ 'jsx\|react'
   if isReact
     let selfClosingEnding = ' />'
   else
