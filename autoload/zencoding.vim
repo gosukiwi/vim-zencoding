@@ -110,6 +110,6 @@ function! zencoding#expand(is_self_closing) abort
   if a:is_self_closing
     return "\<Esc>v" . (len(line) - 1) . "hc" . tag['self']
   else
-    return "\<Esc>v" . (len(line) - 1) . "hc" . tag['open'] . tag['close'] . "\<Esc>%i"
+    return "\<Esc>v" . (len(line) - 1) . "hc" . tag['open'] . tag['close'] . "\<Esc>" . (len(tag['close']) - 1) . "hi"
   endif
 endfunction
