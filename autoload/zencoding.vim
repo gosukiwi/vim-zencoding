@@ -79,7 +79,6 @@ endfunction
 function! zencoding#expand(is_self_closing) abort
   let line = zencoding#getword()
   let matches = matchlist(line, '^\([a-zA-Z-]\+\)\([.#]\|$\)')
-  echom matches
   if len(matches) == 0
     " try matching with an initial dot or numeral, and default tagname to
     " `div`
