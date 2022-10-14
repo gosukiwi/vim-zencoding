@@ -107,9 +107,16 @@ function! zencoding#expand(is_self_closing) abort
   endif
 
   " insert tag
-  if a:is_self_closing
-    return "\<Esc>v" . (len(line) - 1) . "hc" . tag['self']
+  let amountOfCharactersToGoBack = (len(line) - 1)
+  if amountOfCharactersToGoBack == 0
+    let goToStartOfWord = ""
   else
-    return "\<Esc>v" . (len(line) - 1) . "hc" . tag['open'] . tag['close'] . "\<Esc>" . (len(tag['close']) - 1) . "hi"
+    let goToStartOfWord =  amountOfCharactersToGoBack . "h"
+  endif
+
+  if a:is_self_closing
+    return "\<Esc>v" . goToStartOfWord . "c" . tag['self']
+  else
+    return "\<Esc>v" . goToStartOfWord . "c" . tag['open'] . tag['close'] . "\<Esc>" . (len(tag['close']) - 1) . "hi"
   endif
 endfunction
